@@ -2,6 +2,7 @@ import React from "react";
 import "./Movie.css";
 
 function Movie({ movieObject }) {
+  const sinopsissize = 150;
   return (
     <div className="Movie">
       <div className="Movie__Column">
@@ -21,8 +22,8 @@ function Movie({ movieObject }) {
           {movieObject.movieYear} , {movieObject.movieRating}/10
         </div>
         <div className="Movie__synopsis">
-          {movieObject.movieSynopsis.length > 300
-            ? movieObject.movieSynopsis.substr(0, 300) || " ... "
+          {movieObject.movieSynopsis.length > sinopsissize
+            ? movieObject.movieSynopsis.substr(0, sinopsissize) || " ... "
             : movieObject.movieSynopsis}
         </div>
       </div>
