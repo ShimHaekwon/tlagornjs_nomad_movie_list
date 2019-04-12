@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./MoviePages.css";
 
+const pageBlock = 1;
+
 class MoviePages extends Component {
   state = {};
 
@@ -8,7 +10,8 @@ class MoviePages extends Component {
   __page_number = this.props.page_number;
 
   render() {
-    console.log("MoviePages", this.props);
+    console.log("MoviePages.__movie_count=", this.__movie_count);
+    console.log("MoviePages.__page_number=", this.__page_number);
     return (
       <div className="MoviePages">
         <div> First </div>
