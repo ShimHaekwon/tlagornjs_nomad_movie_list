@@ -16,7 +16,7 @@ class MoviePages extends Component {
       <div className="MoviePages">
         <div> First </div>
         <div> Prev </div>
-        <div> 1 </div>
+        <div> 1, 2, 3, 4, 5 </div>
         <div> Next </div>
         <div> Final </div>
       </div>
