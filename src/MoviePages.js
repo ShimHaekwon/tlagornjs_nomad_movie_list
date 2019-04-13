@@ -9,6 +9,7 @@ class MoviePages extends Component {
   __movie_count = this.props.movie_count;
   __page_number = this.props.page_number;
 
+  
   render() {
     console.log("MoviePages.__movie_count=", this.__movie_count);
     console.log("MoviePages.__page_number=", this.__page_number);
