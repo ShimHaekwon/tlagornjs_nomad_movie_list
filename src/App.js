@@ -28,6 +28,15 @@ class App extends Component {
     this._getMovieList();
   };
 
+  _callMovieListPageFromChild = parVal => {
+    console.log(parVal);
+    // this._sortby = this._sortby;
+    // this._orderby = this._orderby;
+    // this._queryTerm = this._queryTerm;
+    this._nextPage = parVal.nextPage;
+    this._getMovieList();
+  };
+
   _getMovieList = async () => {
     const moviesFromApi = await this._callApi();
     this.setState({
@@ -87,7 +96,9 @@ class App extends Component {
     };
     console.log("movie_count:" + movieDataObject.movie_count);
     console.log("page_number:" + movieDataObject.page_number);
-    return <MoviePages movieDataObject={movieDataObject} />;
+    return <MoviePages
+     movieDataObject={movieDataObject}
+     handleToAppPage={this._callMovieListPageFromChild} />;
 
     //return moviePages;
   };
