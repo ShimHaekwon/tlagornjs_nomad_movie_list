@@ -21,17 +21,21 @@ class MoviePages extends Component {
 
   __callParentFunctionFirst = e => {
     this.__nextPage = 1;
+    this.__callParentFunction;
   }
   __callParentFunctionPrev = e => {
     this.__nextPage = this.__currentPage - 1;
+    this.__callParentFunction;
   }
 
   __callParentFunctionNext = e => {
     this.__nextPage = this.__currentPage + 1;
+    this.__callParentFunction;
   }
 
   __callParentFunctionFinal = e => {
-    this.__nextPage = CEIL(this.__movie_count / 20);
+    this.__nextPage = Math.ceil(this.__movie_count / 20);
+    this.__callParentFunction;
   }
   
   
