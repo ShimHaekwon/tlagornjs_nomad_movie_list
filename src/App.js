@@ -8,23 +8,50 @@ class App extends Component {
   state = {};
 
   _sortby = "rating";
-  _orderby = "asc"; // desc
+  _orderby = "desc"; // desc, asc
   _currentPage = 1;
   _queryTerm = "";
   _nextPage = 1;
   _pageBlock = 1;
+  _listLimit = 20;
 
   componentDidMount() {
     console.log("componentDidMount");
     this._getMovieList();
   }
 
+  _callMovieListGoPagesFromChild = parVal => {
+    console.log("parVal:" + parVal);
+
+    let parNextPage = parVal.nextPage;
+    this._nextPage = parNextPage;
+    this._getMovieList();
+  };
   _callMovieListFromChild = parVal => {
-    console.log(parVal);
-    this._sortby = parVal.sortby;
-    this._orderby = parVal.orderby;
-    this._queryTerm = parVal.queryTerm;
-    this._nextPage = parVal.nextPage;
+    console.log("parVal:" + parVal);
+
+    let parSortBy = parVal.sortby;
+    let parOrderBy = parVal.orderby;
+    let parQueryTerm = parVal.queryTerm;
+    // let parNextPage = parVal.nextPage;
+
+    if (parVal.sortby == null) {
+      parSortBy = this._sortby;
+    }
+    if (parVal.orderby == null) {
+      parOrderBy = this._orderby;
+    }
+    if (parVal.queryTerm == null) {
+      parQueryTerm = this._queryTerm;
+    }
+    // if (parVal.nextPage == null) {
+    //   parNextPage = this._nextPage;
+    // }
+
+    this._sortby = parSortBy;
+    this._orderby = parOrderBy;
+    this._queryTerm = parQueryTerm;
+    this._nextPage = 1;
     this._getMovieList();
   };
 
@@ -36,6 +63,11 @@ class App extends Component {
   };
 
   _callApi = () => {
+    console.log("_callApi.this._orderby:" + this._orderby);
+    console.log("_callApi.this._sortby:" + this._sortby);
+    console.log("_callApi.this._queryTerm:" + this._queryTerm);
+    console.log("_callApi.this._nextPage:" + this._nextPage);
+    console.log("_callApi.this._listLimit:" + this._listLimit);
     return fetch(
       "https://yts.am/api/v2/list_movies.json?order_by=" +
         this._orderby +
@@ -45,7 +77,8 @@ class App extends Component {
         this._queryTerm +
         "&page=" +
         this._nextPage +
-        "&limit=20"
+        "&limit=" +
+        this._listLimit
     )
       .then(ret => ret.json())
       .then(json => json.data) // json.data.movies
@@ -81,13 +114,19 @@ class App extends Component {
   };
 
   _renderMoviePages = () => {
-    let movieDataObject = {
+    const movieDataObject = {
       movie_count: this.state.movieData.movie_count,
-      page_number: this.state.movieData.page_number
+      page_number: this.state.movieData.page_number,
+      page_block: this._listLimit
     };
     console.log("movie_count:" + movieDataObject.movie_count);
     console.log("page_number:" + movieDataObject.page_number);
-    return <MoviePages movieDataObject={movieDataObject} />;
+    return (
+      <MoviePages
+        movieDataObject={movieDataObject}
+        handleToAppPages={this._callMovieListGoPagesFromChild}
+      />
+    );
 
     //return moviePages;
   };
