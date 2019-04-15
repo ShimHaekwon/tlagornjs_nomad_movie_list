@@ -1,7 +1,7 @@
 {
   "name": "uniuri-nomad-movie-list-with-sorting",
   "version": "1.0.0",
-  "description": "NOMAD MOVIE LIST WEB Service - following and attach sorting method",
+  "description": "NOMAD MOVIE LIST WEB Service - following and attach sorting method & pagination",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
