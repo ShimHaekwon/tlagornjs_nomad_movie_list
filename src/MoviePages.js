@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import "./MoviePages.css";
 
-const __pageBlock = 1;
-const __nextPage = 1;
+// const __pageBlock = 1;
+// const __nextPage = 1;
 
-let __movie_count = 1;
-let __page_number = 1;
-let __page_block = 20;
+// let __movie_count = 1;
+// let __page_number = 1;
+//let __page_block = 20;
 
 class MoviePages extends Component {
   state = {};
@@ -68,25 +68,25 @@ class MoviePages extends Component {
     return (
       <div className="MoviePages">
         <div>
-          <a href="#" onClick={this.__callParentFunctionFirst} id="pageFirst">
+          <button onClick={this.__callParentFunctionFirst} id="pageFirst">
             First
-          </a>
+          </button>
         </div>
         <div>
-          <a href="#" onClick={this.__callParentFunctionPrev} id="pagePrev">
+          <button onClick={this.__callParentFunctionPrev} id="pagePrev">
             Prev
-          </a>
+          </button>
         </div>
         <div> {this.props.movieDataObject.page_number} </div>
         <div>
-          <a href="#" onClick={this.__callParentFunctionNext} id="pageNext">
+          <button onClick={this.__callParentFunctionNext} id="pageNext">
             Next
-          </a>
+          </button>
         </div>
         <div>
-          <a href="#" onClick={this.__callParentFunctionFinal} id="pageFinal">
+          <button onClick={this.__callParentFunctionFinal} id="pageFinal">
             Final
-          </a>
+          </button>
         </div>
       </div>
     );
