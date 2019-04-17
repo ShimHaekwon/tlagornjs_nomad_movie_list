@@ -26,24 +26,31 @@ class MoviePages extends Component {
   __callParentFunctionFirst = e => {
     e.preventDefault();
     this.__nextPage = 1;
-    this.__callParentFunction;
-  }
+    this.__callParentFunctionMovePages();
+  };
   __callParentFunctionPrev = e => {
-    this.__nextPage = this.__currentPage - 1;
-    this.__callParentFunction;
-  }
+    e.preventDefault();
+    if (this.props.movieDataObject.page_number > 1) {
+      this.__nextPage = this.props.movieDataObject.page_number - 1;
+      this.__callParentFunctionMovePages();
+    }
+  };
 
   __callParentFunctionNext = e => {
-    this.__nextPage = this.__currentPage + 1;
-    this.__callParentFunction;
-  }
+    e.preventDefault();
+    this.__nextPage = this.props.movieDataObject.page_number + 1;
+    this.__callParentFunctionMovePages();
+  };
 
   __callParentFunctionFinal = e => {
-    this.__nextPage = Math.ceil(this.__movie_count / 20);
-    this.__callParentFunction;
-  }
-  
-  
+    e.preventDefault();
+    this.__nextPage = Math.ceil(
+      this.props.movieDataObject.movie_count /
+        this.props.movieDataObject.page_block
+    );
+    this.__callParentFunctionMovePages();
+  };
+
   render() {
     console.log(
       "MoviePages.__movie_count=",
