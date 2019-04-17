@@ -26,7 +26,6 @@ class MoviePages extends Component {
   __callParentFunctionFirst = e => {
     e.preventDefault();
     this.__nextPage = 1;
-<<<<<<< HEAD
     this.__callParentFunction;
   }
   __callParentFunctionPrev = e => {
@@ -45,33 +44,6 @@ class MoviePages extends Component {
   }
   
   
-=======
-    this.__callParentFunctionMovePages();
-  };
-  __callParentFunctionPrev = e => {
-    e.preventDefault();
-    if (this.props.movieDataObject.page_number > 1) {
-      this.__nextPage = this.props.movieDataObject.page_number - 1;
-      this.__callParentFunctionMovePages();
-    }
-  };
-
-  __callParentFunctionNext = e => {
-    e.preventDefault();
-    this.__nextPage = this.props.movieDataObject.page_number + 1;
-    this.__callParentFunctionMovePages();
-  };
-
-  __callParentFunctionFinal = e => {
-    e.preventDefault();
-    this.__nextPage = Math.ceil(
-      this.props.movieDataObject.movie_count /
-        this.props.movieDataObject.page_block
-    );
-    this.__callParentFunctionMovePages();
-  };
-
->>>>>>> 9c2e89a4262f787582f60b7fa3e3db46cc2ea094
   render() {
     console.log(
       "MoviePages.__movie_count=",
