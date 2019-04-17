@@ -1,7 +1,7 @@
 {
   "name": "uniuri-nomad-movie-list-with-sorting",
   "version": "1.0.0",
-  "description": "NOMAD MOVIE LIST WEB Service - following and attach sorting method",
+  "description": "NOMAD MOVIE LIST WEB Service - following and attach sorting method & pagination",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
@@ -21,5 +21,5 @@
     "deploy": "gh-pages -d build"
   },
   "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"],
-  "homepage": "http://ShimHaekwon.github.io/movie_app"
+  "homepage": "http://ShimHaekwon.github.io/tlagornjs_nomad_movie_list"
 }
