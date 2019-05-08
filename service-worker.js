@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/tlagornjs_nomad_movie_list/precache-manifest.39d9ea7facdb4e8f3e3283a9fe0ac700.js"
+  "/tlagornjs_nomad_movie_list/precache-manifest.31db6f7613b22f0716c4b8ea345e90c5.js"
 );
 
 workbox.clientsClaim();
